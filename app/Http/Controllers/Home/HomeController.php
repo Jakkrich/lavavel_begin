@@ -21,4 +21,12 @@ class HomeController extends Controller
         $user['desc'] = 'ccc';
         return view('welcome.hello', compact('user'));
     }
+
+    public function HelloAdmin()
+    {
+        $data = config('admin.admin');
+        //dd($data);
+        $data = $data[0];
+        return view('helloadmin', compact('data'));
+    }
 }

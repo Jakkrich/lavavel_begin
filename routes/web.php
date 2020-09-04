@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Route::get('/hello/{id}', 'Home\HomeController@hello');
 Route::get('/hello2/{id}', 'Home\HomeController@hello2');
+Route::get('/helloadmin', 'Home\HomeController@helloadmin');
 
-Route::resource('/user', 'Home\UserController');
+
+Route::resource('user', 'Home\UserController');
 
 // Route::get('/contact_us', function () {
 //     return 'test@gmail.com';

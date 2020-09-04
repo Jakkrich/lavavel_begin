@@ -17,14 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact_us', function () {
-    return 'test@gmail.com';
-});
+Route::get('/hello', 'Home\HomeController@hello');
 
-Route::get('/about_us', function () {
-    return 'Hi About';
-});
+Route::resource('/user', 'Home\UserController');
 
-Route::get('/post/{id}', function ($id) {
-    return 'POST ID: ' . $id;
+// Route::get('/contact_us', function () {
+//     return 'test@gmail.com';
+// });
+
+// Route::get('/about_us', function () {
+//     return 'Hi About';
+// });
+
+// Route::get('/post/{id}', function ($id) {
+//     return 'POST ID: ' . $id;
+// });
+
+Route::get('/post/{catagory}/{id}', function ($catagory, $id) {
+    return 'POST CATAGORY: ' . $catagory . ' ID: ' . $id;
 });

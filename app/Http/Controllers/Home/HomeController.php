@@ -27,6 +27,8 @@ class HomeController extends Controller
         $data = config('admin.admin');
         //dd($data);
         $data = $data[0];
-        return view('helloadmin', compact('data'));
+        $users = array('aaa@gmail.com', 'bbb@gmail.com', 'ccc@gmail.com');
+
+        return view('helloadmin', compact('data', 'users'));
     }
 }

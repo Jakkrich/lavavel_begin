@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Model\CountyrModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,5 +31,30 @@ class HomeController extends Controller
         $users = array('aaa@gmail.com', 'bbb@gmail.com', 'ccc@gmail.com');
 
         return view('helloadmin', compact('data', 'users'));
+    }
+
+    public function create()
+    {
+        $CountyrModel = new CountyrModel();
+        $CountyrModel->insert();
+        echo "Record Inserted...";
+    }
+    public function edit()
+    {
+        $CountyrModel = new CountyrModel();
+        $CountyrModel->edit();
+        echo "Record Edited...";
+    }
+    public function read()
+    {
+        $CountyrModel = new CountyrModel();
+        $date = $CountyrModel->read();
+        dd($date);
+    }
+    public function delete()
+    {
+        $CountyrModel = new CountyrModel();
+        $CountyrModel->delete();
+        echo "Record Deleted...";
     }
 }

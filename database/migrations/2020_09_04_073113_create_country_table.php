@@ -31,8 +31,6 @@ class CreateCountryTable extends Migration
             $table->integer('modified')->unsigned();
             $table->integer('modified_by')->unsigned();
             $table->boolean('record_delete')->default(0);
-
-            $table->engine = "InnoDB";
         });
 
         DB::connection('pgsql')->table('country')->insert([

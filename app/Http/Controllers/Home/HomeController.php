@@ -7,8 +7,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function Hello()
+    public function Hello($id)
     {
-        return "Hello...";
+        //return view("hello")->with('id', $id);
+        return view('hello', compact('id'));
+    }
+
+    public function Hello2($id)
+    {
+        //return view("hello")->with('id', $id);
+        $user['info'] = 'aaa';
+        $user['name'] = 'bbb';
+        $user['desc'] = 'ccc';
+        return view('welcome.hello', compact('user'));
     }
 }

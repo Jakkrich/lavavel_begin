@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', 'Home\HomeController@hello');
+Route::get('/hello/{id}', 'Home\HomeController@hello');
+Route::get('/hello2/{id}', 'Home\HomeController@hello2');
 
 Route::resource('/user', 'Home\UserController');
 

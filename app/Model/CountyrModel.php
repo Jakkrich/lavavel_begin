@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class CountyrModel extends Model
 {
+    protected $table = 'country';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+
     public function insert()
     {
         $date = new \DateTime();
@@ -30,8 +34,8 @@ class CountyrModel extends Model
         return DB::connection('pgsql')->select('select * from country');
     }
 
-    public function delete()
-    {
-        DB::connection('pgsql')->delete('delete from country where id = ?', [2]);
-    }
+    // public function delete()
+    // {
+    //     DB::connection('pgsql')->delete('delete from country where id = ?', [2]);
+    // }
 }

@@ -36,25 +36,73 @@ class HomeController extends Controller
     public function create()
     {
         $CountyrModel = new CountyrModel();
-        $CountyrModel->insert();
+        # SQL
+        //$CountyrModel->insert();
+
+        # ORM
+        $date = new \DateTime();
+        $unixTimeStamp = $date->getTimestamp();
+
+        $CountyrModel->code = 'F';
+        $CountyrModel->name = 'FF';
+        $CountyrModel->dname = 'FFF';
+        $CountyrModel->num_code = 0;
+        $CountyrModel->phone_code = 0;
+
+        $CountyrModel->created = $unixTimeStamp;
+        $CountyrModel->register_by = 1;
+        $CountyrModel->modified = $unixTimeStamp;
+        $CountyrModel->modified_by = 1;
+
+        $CountyrModel->save();
         echo "Record Inserted...";
     }
     public function edit()
     {
-        $CountyrModel = new CountyrModel();
-        $CountyrModel->edit();
+        # SQL
+        // $CountyrModel = new CountyrModel();
+        // $CountyrModel->edit();
+
+        # ORM
+        $CountyrModel = CountyrModel::find(1);
+        $CountyrModel->name = 'xyz';
+        $CountyrModel->save();
+
+        $CountyrModel = CountyrModel::where('id', 1)->update(
+            [
+                'dname' => 'ggg'
+            ]
+        );
+
         echo "Record Edited...";
     }
     public function read()
     {
-        $CountyrModel = new CountyrModel();
-        $date = $CountyrModel->read();
-        dd($date);
+        # SQL
+        // $CountyrModel = new CountyrModel();
+        // $data = $CountyrModel->read();
+        // dd($data);
+
+        # ORM
+        // $data = CountyrModel::fine(1);
+        // $data = CountyrModel::where('record_deleted', 0)->orderBy('name', 'ASC')->take(2)->get();
+        // $data = CountyrModel::where('id', '>', 3)->orderBy('name', 'ASC')->get();
+        $data = CountyrModel::all();
+        foreach ($data as $country) {
+            echo '<br/>' . $country->name;
+        }
     }
     public function delete()
     {
-        $CountyrModel = new CountyrModel();
-        $CountyrModel->delete();
+        # SQL
+        // $CountyrModel = new CountyrModel();
+        // $CountyrModel->delete();
+
+        # ORM
+        // $CountyrModel = CountyrModel::find(4);
+        // $CountyrModel->delete();
+
+        CountyrModel::destroy([3, 4]);
         echo "Record Deleted...";
     }
 }

@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contact_us', function () {
+    return 'test@gmail.com';
+});
+
+Route::get('/about_us', function () {
+    return 'Hi About';
+});
+
+Route::get('/post/{id}', function ($id) {
+    return 'POST ID: ' . $id;
+});

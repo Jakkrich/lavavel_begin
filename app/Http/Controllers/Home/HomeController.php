@@ -6,6 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Model\CountyrModel;
 use Illuminate\Http\Request;
 
+use App\Models\City;
+use App\Models\Subject;
+use App\Models\Student;
+use App\Models\Card;
+use App\Models\SubjectSelection;
+
 class HomeController extends Controller
 {
     public function Hello($id)
@@ -104,5 +110,10 @@ class HomeController extends Controller
 
         CountyrModel::destroy([3, 4]);
         echo "Record Deleted...";
+    }
+
+    public function relationship()
+    {
+        # code...
     }
 }

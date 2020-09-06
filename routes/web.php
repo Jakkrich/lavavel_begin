@@ -21,6 +21,7 @@ Route::get('/hello/{id}', 'Home\HomeController@hello');
 Route::get('/hello2/{id}', 'Home\HomeController@hello2');
 Route::get('/helloadmin', 'Home\HomeController@helloadmin');
 
+Route::get('/relationship', 'Home\HomeController@relationship');
 
 Route::get('/create', 'Home\HomeController@create');
 Route::get('/edit', 'Home\HomeController@edit');
@@ -28,6 +29,7 @@ Route::get('/read', 'Home\HomeController@read');
 Route::get('/delete', 'Home\HomeController@delete');
 
 Route::resource('user', 'Home\UserController');
+
 
 // Route::get('/contact_us', function () {
 //     return 'test@gmail.com';

@@ -142,6 +142,14 @@ class Relationship extends Migration
             [
                 'student_id' => 1,
                 'subject_id' => 3
+            ],
+            [
+                'student_id' => 2,
+                'subject_id' => 2
+            ],
+            [
+                'student_id' => 3,
+                'subject_id' => 3
             ]
         ]);
     }

@@ -114,6 +114,37 @@ class HomeController extends Controller
 
     public function relationship()
     {
-        # code...
+        $id = 2;
+
+        $student = Student::find($id);
+        echo "<h3>Student</h3>" . $student;
+
+        # Add New
+        // $student->subjects()->save(new Subject([
+        //     'name' => 'Math',
+        //     'code' => 'MTH'
+        // ]));
+
+        // $student->subjects()->attach(2);   # Add ข้อมูลเข้า Table กลาง
+        // $student->subjects()->detach(3);   # Delete ข้อมูลเข้า Table กลาง
+        $student->subjects()->sync([1, 2, 3, 4]);  # Add ข้อมูลเข้า Table กลาง (แบบหลายค่า ไม่สาใจค่าซ้ำ)
+        $student = Student::find($id);
+        echo "<h3>Student</h3>" . $student;
+
+
+        echo "<br/>";
+        $students = Student::all();
+        foreach ($students as $s) {
+            echo "<h3>Student info</h3>" . $s->firstname;
+            echo " live in " . $s->city['name'];
+            echo " card is " . ($s->card['active'] == 1 ? 'Active' : 'Not Active');
+            echo "<br/>Selected Subject :";
+            if (count($s->subjects) == 0) {
+                echo '0';
+            }
+            foreach ($s->subjects as $subject) {
+                echo '<br/><li>' . $subject->name;
+            }
+        }
     }
 }

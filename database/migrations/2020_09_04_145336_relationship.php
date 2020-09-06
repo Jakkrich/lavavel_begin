@@ -119,18 +119,18 @@ class Relationship extends Migration
             ]
         ]);
 
-        /*** Student Section ***/
-        Schema::connection('pgsql')->create('student_section', function ($table) {
+        /*** Student Selection ***/
+        Schema::connection('pgsql')->create('student_selection', function ($table) {
             $table->integer('student_id')->unsigned();
             $table->integer('subject_id')->unsigned();
 
             $table->unique(['student_id', 'subject_id']);
         });
-        Schema::connection('pgsql')->table('student_section', function (Blueprint $table) {
+        Schema::connection('pgsql')->table('student_selection', function (Blueprint $table) {
             $table->foreign('student_id')->references('id')->on('student');
             $table->foreign('subject_id')->references('id')->on('subject');
         });
-        DB::connection('pgsql')->table('student_section')->insert([
+        DB::connection('pgsql')->table('student_selection')->insert([
             [
                 'student_id' => 1,
                 'subject_id' => 1
@@ -153,7 +153,7 @@ class Relationship extends Migration
      */
     public function down()
     {
-        Schema::drop('student_section');
+        Schema::drop('student_selection');
         Schema::drop('subject');
         Schema::drop('card');
         Schema::drop('student');

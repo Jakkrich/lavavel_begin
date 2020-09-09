@@ -147,4 +147,19 @@ class HomeController extends Controller
             }
         }
     }
+
+    public function morph(Request $request)
+    {
+        $id = 1;
+        $student = Student::find($id);
+        $student->image()->create(['path' => 'student_image.jpg']);
+
+        $student->address()->create([
+            'address_line1' => 'A111',
+            'address_line2' => 'A222',
+            'address_line3' => 'A333',
+        ]);
+
+        $student->contact()->create(['phone_num' => '8899885522']);
+    }
 }

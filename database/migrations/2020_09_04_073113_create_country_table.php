@@ -64,7 +64,7 @@ class CreateCountryTable extends Migration
         });
 
         Schema::connection('pgsql')->table('country_state', function ($table) {
-            $table->foreign('country_id')->references('id')->on('country');
+            $table->foreign('country_id')->references('id')->on('country')->onDelete('cascade');
         });
     }
 
@@ -75,6 +75,7 @@ class CreateCountryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('country');
+        Schema::connection('pgsql')->drop('country_state');
+        Schema::connection('pgsql')->drop('country');
     }
 }

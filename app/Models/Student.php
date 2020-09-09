@@ -35,4 +35,19 @@ class Student extends Model
             'subject_id'
         );
     }
+
+    public function image()
+    {
+        return $this->morphMany('App\Models\Image', 'image');
+    }
+
+    public function address()
+    {
+        return $this->morphMany('App\Models\Address', 'address');
+    }
+
+    public function contact()
+    {
+        return $this->morphMany('App\Models\Contact', 'contact');
+    }
 }

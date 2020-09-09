@@ -23,6 +23,8 @@ Route::get('/helloadmin', 'Home\HomeController@helloadmin');
 
 Route::get('/relationship', 'Home\HomeController@relationship');
 
+Route::get('/morph', 'Home\HomeController@morph');
+
 Route::get('/create', 'Home\HomeController@create');
 Route::get('/edit', 'Home\HomeController@edit');
 Route::get('/read', 'Home\HomeController@read');

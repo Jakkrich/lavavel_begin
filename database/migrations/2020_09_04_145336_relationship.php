@@ -161,10 +161,10 @@ class Relationship extends Migration
      */
     public function down()
     {
-        Schema::drop('student_selection');
-        Schema::drop('subject');
-        Schema::drop('card');
-        Schema::drop('student');
-        Schema::drop('city');
+        Schema::dropIfExists('student_selection');
+        Schema::dropIfExists('subject');
+        Schema::dropIfExists('card');
+        Schema::dropIfExists('student');
+        Schema::dropIfExists('city');
     }
 }

@@ -152,14 +152,34 @@ class HomeController extends Controller
     {
         $id = 1;
         $student = Student::find($id);
-        $student->image()->create(['path' => 'student_image.jpg']);
 
-        $student->address()->create([
-            'address_line1' => 'A111',
-            'address_line2' => 'A222',
-            'address_line3' => 'A333',
-        ]);
+        foreach ($student->image as $image) {
+            echo "<br/>" . $image->path;
+        }
 
-        $student->contact()->create(['phone_num' => '8899885522']);
+        echo "<br/>";
+
+        $images = $student->image()->orderBy('id', 'desc')->get();
+        foreach ($images as $image) {
+            echo "<br/>" . $image->path;
+        }
+
+        echo "<br/>";
+
+        $images = $student->image()->orderBy('id', 'desc')->first();
+        echo "<br/> Last Image..." . $images->path;
+
+        $student->image()->whereId(1)->delete();
+
+
+        // $student->image()->create(['path' => 'student_image.jpg']);
+
+        // $student->address()->create([
+        //     'address_line1' => 'A111',
+        //     'address_line2' => 'A222',
+        //     'address_line3' => 'A333',
+        // ]);
+
+        // $student->contact()->create(['phone_num' => '8899885522']);
     }
 }
